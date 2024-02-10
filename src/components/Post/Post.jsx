@@ -1,17 +1,27 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Post.scss";
-import profileImg from "../../assets/images/profile2.png";
 import profileImg2 from "../../assets/images/profile1.png";
 import postImg from "../../assets/images/Mask group.png";
 import CommentBox from "../CommentBox/CommentBox";
 
 const Post = () => {
-  const [showComments, setShowComments] = useState(true);
+  const [showComments, setShowComments] = useState(false);
+  const divRef = useRef(null);
+
+  const handleShowCommentClick = () => {
+    setShowComments((prev) => !prev);
+  };
+
+  useEffect(() => {
+    if (showComments && divRef.current) {
+      divRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }, [showComments]);
   return (
     <div className="post">
       <div className="post_header">
         <div className="post_header_left_side">
-          <img src={profileImg} alt="profile" />
+          <img src={profileImg2} alt="profile" />
           <div>
             <span>Superman</span>
             <small>30 seconds ago</small>
@@ -40,12 +50,16 @@ const Post = () => {
           <button className="secondary_btn">Like</button>
           <button
             className="primary_btn"
-            onClick={() => setShowComments((prev) => !prev)}
+            onClick={handleShowCommentClick}
           >
             Comment
           </button>
         </div>
-        {showComments && <CommentBox />}
+        {showComments && (
+          <div id="collapse-text" ref={divRef}>
+            <CommentBox reference={divRef} />
+          </div>
+        )}
       </div>
     </div>
   );

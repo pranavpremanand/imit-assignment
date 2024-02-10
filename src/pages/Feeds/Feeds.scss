@@ -1,11 +1,11 @@
 .main_div {
   padding: 1rem 3rem;
   @media (max-width: 600px) {
-    padding: 1rem 2rem;
+    padding: 1rem;
   }
   .add_button {
     position: fixed;
-    right: 4rem;
+    right: 3rem;
     top: 50%;
     transform: translateY(-50%);
     background-color: #485867;
@@ -18,6 +18,9 @@
     border: none;
     cursor: pointer;
     z-index: 10;
+    @media(max-width:600px){
+        right: 2rem;
+    }
     .add_icon {
       color: #ffffff;
       font-size: 2rem;
