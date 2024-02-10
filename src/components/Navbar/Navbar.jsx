@@ -14,13 +14,13 @@ const Navbar = () => {
           <input type="text" placeholder="Search" />
           <FiSearch className="icon" />
         </div>
-        <button className="user primary-btn">
+        <button className="user primary_btn">
           <img src={profileImg} alt="profile" />
           <span>Asha Sunny</span>
         </button>
-        <img src={profileImg} alt="profile" className="sm-view-icon"/>
-        <RiLogoutCircleRLine  className="sm-view-icon"/>
-        <button className="primary-btn">Logout</button>
+        <img src={profileImg} alt="profile" className="sm_view_icon"/>
+        <RiLogoutCircleRLine  className="sm_view_icon"/>
+        <button className="primary_btn">Logout</button>
       </div>
     </div>
   );

@@ -6,6 +6,13 @@
   gap: 1rem;
   top: 0;
   left: 0;
+  background-color: #fff;
+  z-index: 10;
+  padding: 1rem 3rem 0.5rem 3rem;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  @media (max-width: 600px) {
+    padding: 1rem 1.5rem 0.5rem 1.5rem;
+  }
   &_logo {
     width: 3rem;
     object-fit: contain;
@@ -41,7 +48,7 @@
         color: #949494;
       }
     }
-    .sm-view-icon {
+    .sm_view_icon {
       display: inline;
       width: 2.6rem;
       height: 2.6rem;
@@ -51,7 +58,7 @@
         display: none;
       }
     }
-    .primary-btn {
+    .primary_btn {
       display: none;
       @media (min-width: 735px) {
         display: inline;

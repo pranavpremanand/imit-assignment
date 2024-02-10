@@ -3,10 +3,9 @@
   text-transform: capitalize;
   border: none;
   border-radius: 1.5rem;
-  color: #ffffff;
   position: relative;
   cursor: pointer;
-  transition: background-color 0.8s ease-out;
+  transition: background-color 0.5s ease-out;
   font-weight: 500;
   max-width: $maxWidth;
   min-width: $width;
@@ -56,11 +55,32 @@ body {
   }
 }
 
-
-.primary-btn {
-  @include buttonStyles(9rem, 0);
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-thumb {
   background-color: #e7ad99;
+  border-radius: 1rem;
+}
+
+.primary_btn {
+  @include buttonStyles(9rem, auto);
+  background-color: #e7ad99;
+  color: #ffffff;
   &:hover {
     background-color: #be8f7f;
+  }
+}
+
+.secondary_btn {
+  @include buttonStyles(auto, auto);
+  background-color: #ffffff;
+  border: 1px solid #e7ad99 !important;
+  color: #cf796c;
+  border-radius: 0.5rem;
+  padding: 0.3rem 1.5rem;
+  &:hover {
+    background-color: #e7ad99;
+    color: #ffffff;
   }
 }

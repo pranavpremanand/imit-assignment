@@ -4,12 +4,12 @@ import './UploadImages.scss'
 
 const UploadImages = () => {
   return (
-    <div className="upload-container">
-      <div className="left-box"></div>
-      <div className="right-box"></div>
-      <img src={img} alt="add post" className="add-post-img"/>
-      <div className="button-box">
-        <button className="upload-btn">upload image</button>
+    <div className="upload_container">
+      <div className="left_box"></div>
+      <div className="right_box"></div>
+      <img src={img} alt="add post" className="add_post_img"/>
+      <div className="button_box">
+        <button className="upload_btn">upload image</button>
         <div></div>
         <div></div>
       </div>
