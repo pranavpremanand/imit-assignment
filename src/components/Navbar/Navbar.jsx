@@ -16,7 +16,7 @@ const Navbar = () => {
         </div>
         <button className="user primary_btn">
           <img src={profileImg} alt="profile" />
-          <span>Asha Sunny</span>
+          <span>Superman</span>
         </button>
         <img src={profileImg} alt="profile" className="sm_view_icon"/>
         <RiLogoutCircleRLine  className="sm_view_icon"/>

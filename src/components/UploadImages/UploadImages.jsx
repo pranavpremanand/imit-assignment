@@ -7,7 +7,7 @@ const UploadImages = () => {
     <div className="upload_container">
       <div className="left_box"></div>
       <div className="right_box"></div>
-      <img src={img} alt="add post" className="add_post_img"/>
+      <img src={img} alt="add post" loading="lazy" className="add_post_img"/>
       <div className="button_box">
         <button className="upload_btn">upload image</button>
         <div></div>

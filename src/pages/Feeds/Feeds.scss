@@ -6,7 +6,8 @@
   .add_button {
     position: fixed;
     right: 4rem;
-    top:50%;
+    top: 50%;
+    transform: translateY(-50%);
     background-color: #485867;
     width: 2rem;
     height: 2rem;

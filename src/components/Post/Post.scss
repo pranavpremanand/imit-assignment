@@ -1,7 +1,7 @@
 @import "../../index.scss";
 
 .post {
-  padding: 1.5rem 1rem;
+  padding: 1.2rem 1rem;
   box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
   margin-top: 2rem;
@@ -29,6 +29,7 @@
         }
         small {
           color: #0000004d;
+          font-size: .7rem;
         }
       }
     }
