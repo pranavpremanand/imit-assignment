@@ -33,7 +33,7 @@ const Post = () => {
         Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto
         ullam accusamus deserunt inventore, tempora vitae totam possimus illum!
       </p>
-      <img src={postImg} alt="post" />
+      <img src={postImg} alt="post" loading="lazy"/>
       <div className="like_and_comments">
         <div className="like_and_comments_header">
           <div className="likes">
