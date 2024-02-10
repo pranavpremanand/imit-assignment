@@ -1,4 +1,5 @@
 import React from "react";
+import "./CommentItem.scss";
 import profileImg from "../../assets/images/profile1.png";
 import profileImg1 from "../../assets/images/Mask group.png";
 import { HiOutlineDotsVertical } from "react-icons/hi";
