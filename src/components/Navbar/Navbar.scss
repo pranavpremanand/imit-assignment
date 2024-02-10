@@ -1,0 +1,61 @@
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: sticky;
+  gap: 1rem;
+  top: 0;
+  left: 0;
+  &_logo {
+    width: 3rem;
+    object-fit: contain;
+    @media (max-width: 600px) {
+      width: 2.5rem;
+    }
+  }
+  &_options {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    .search_box {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      border: 1px solid #f3f3f3;
+      padding: 0.5rem 1rem;
+      border-radius: 1.5rem;
+      background-color: #f3f3f3;
+      input,
+      input:focus {
+        border: 0;
+        outline: 0;
+        background-color: #f3f3f3;
+      }
+      input {
+        @media (max-width: 600px) {
+          width: 6rem;
+        }
+      }
+      .icon {
+        font-size: 1.3rem;
+        color: #949494;
+      }
+    }
+    .sm-view-icon {
+      display: inline;
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 50%;
+      color: #8b8b8b;
+      @media (min-width: 735px) {
+        display: none;
+      }
+    }
+    .primary-btn {
+      display: none;
+      @media (min-width: 735px) {
+        display: inline;
+      }
+    }
+  }
+}

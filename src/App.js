@@ -1,10 +1,11 @@
-import './App.css';
+import { Routes, Route } from "react-router-dom";
+import Feeds from "./pages/Feeds/Feeds";
 
 function App() {
   return (
-    <div className="App">
-      Hello
-    </div>
+    <Routes>
+      <Route path="/" element={<Feeds />} />
+    </Routes>
   );
 }
 

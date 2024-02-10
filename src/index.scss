@@ -1,0 +1,66 @@
+@mixin buttonStyles($maxWidth, $width) {
+  padding: 0.5rem 2rem;
+  text-transform: capitalize;
+  border: none;
+  border-radius: 1.5rem;
+  color: #ffffff;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.8s ease-out;
+  font-weight: 500;
+  max-width: $maxWidth;
+  min-width: $width;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+  img {
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    border-radius: 50%;
+  }
+  span {
+    margin-left: 0.6rem;
+    overflow: hidden;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+  }
+}
+
+@mixin animate($color1, $color2) {
+  @keyframes buttonAnimation {
+    0% {
+      background-color: $color1;
+    }
+    50% {
+      background-color: $color2;
+    }
+    100% {
+      background-color: $color1;
+    }
+  }
+}
+
+* {
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@media screen and (max-width: 600px) {
+  html {
+    font-size: 90%;
+  }
+}
+
+
+.primary-btn {
+  @include buttonStyles(9rem, 0);
+  background-color: #e7ad99;
+  &:hover {
+    background-color: #be8f7f;
+  }
+}
