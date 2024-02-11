@@ -18,6 +18,7 @@ export const AddPostModal = ({ selectedImg, setSelectedImg, ...props }) => {
     };
     dispatch(addPost(data));
     setSelectedImg("");
+    setDescription("");
     props.onHide();
   };
   return (
