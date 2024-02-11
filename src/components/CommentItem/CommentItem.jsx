@@ -16,9 +16,7 @@ const CommentItem = () => {
         <HiOutlineDotsVertical className="three_dots_icon" />
       </div>
       <div className="comment_text">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus vel
-        nemo iure fuga exercitationem repudiandae hic, molestias, ipsa esse quia
-        in velit illo maxime minima placeat. Minima quibusdam ab pariatur.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
       </div>
       <div className="user_reply_comment">
         <div className="comment_head">
@@ -30,10 +28,7 @@ const CommentItem = () => {
           <HiOutlineDotsVertical className="three_dots_icon" />
         </div>
         <div className="comment_text">
-          Lorem ipsum, dolor sit amet consectetur adipisicing elit. Accusamus
-          vel nemo iure fuga exercitationem repudiandae hic, molestias, ipsa
-          esse quia in velit illo maxime minima placeat. Minima quibusdam ab
-          pariatur.
+          Lorem ipsum, dolor sit amet consectetur adipisicing elit.
         </div>
       </div>
     </div>

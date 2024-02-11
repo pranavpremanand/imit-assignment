@@ -37,13 +37,23 @@
       }
     }
   }
-  & > img {
-    border-radius: 0.3rem;
+  .image {
     width: 100%;
     height: 25rem;
-    object-fit: cover;
-    @media(max-width:450px){
+    overflow: hidden;
+    img {
+      width: 100%;
+      height: 100%;
+      border-radius: 0.3rem;
+      object-fit: cover;
+      cursor: pointer;
+      transition: all 0.3s ease-out;
+      @media (max-width: 450px) {
         height: 15rem;
+      }
+      &:hover {
+        transform: scale(1.05);
+      }
     }
   }
   .like_and_comments {
@@ -55,7 +65,7 @@
       align-items: center;
       padding-block: 0.5rem;
       color: #0000009d;
-      gap:0.5rem;
+      gap: 0.5rem;
       .likes {
         display: flex;
         align-items: center;
@@ -85,7 +95,7 @@
           margin-top: 0.4rem;
         }
       }
-      small{
+      small {
         margin-top: 0.4rem;
       }
     }
