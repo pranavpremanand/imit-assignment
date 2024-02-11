@@ -41,6 +41,9 @@
     width: 100%;
     height: 25rem;
     overflow: hidden;
+    @media (max-width: 450px) {
+      height: 15rem;
+    }
     img {
       width: 100%;
       height: 100%;
@@ -48,9 +51,7 @@
       object-fit: cover;
       cursor: pointer;
       transition: all 0.3s ease-out;
-      @media (max-width: 450px) {
-        height: 15rem;
-      }
+
       &:hover {
         transform: scale(1.05);
       }
