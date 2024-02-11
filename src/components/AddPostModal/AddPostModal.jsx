@@ -8,6 +8,12 @@ export const AddPostModal = ({ selectedImg, setSelectedImg, ...props }) => {
   const dispatch = useDispatch();
   const [description, setDescription] = useState("");
 
+  const handleClose = () => {
+    props.onHide();
+    setSelectedImg("");
+    setDescription("");
+  };
+
   const uploadPost = () => {
     const date = new Date();
     let data = {
@@ -45,7 +51,7 @@ export const AddPostModal = ({ selectedImg, setSelectedImg, ...props }) => {
             <button className="primary_btn" onClick={uploadPost}>
               Upload
             </button>
-            <button className="secondary_btn" onClick={props.onHide}>
+            <button className="secondary_btn" onClick={handleClose}>
               Cancel
             </button>
           </div>
