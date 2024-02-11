@@ -9,7 +9,7 @@ import { OverlayTrigger, Tooltip } from "react-bootstrap";
 const Post = () => {
   const [showComments, setShowComments] = useState(false);
   const divRef = useRef(null);
-  const [showPostDetails, setShowPostDetails] = useState(true);
+  const [showPostDetails, setShowPostDetails] = useState(false);
 
   const handleShowCommentClick = () => {
     setShowComments((prev) => !prev);
