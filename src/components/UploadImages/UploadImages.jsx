@@ -4,6 +4,7 @@ import "./UploadImages.scss";
 import { toast } from "react-hot-toast";
 
 const UploadImages = ({ inputRef, handleModalShow, setSelectedImg }) => {
+
   // handle image change
   const onImgChange = (file) => {
     if (file.target.files && file.target.files[0]) {

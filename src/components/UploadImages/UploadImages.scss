@@ -61,11 +61,11 @@
     }
     &:hover,
     .upload_btn:hover {
-      background-color: #926945;
+      background-color: #c08c5d;
     }
     &,
     .upload_btn {
-      @include animate(#c08c5d, #8d6b4dd3);
+      @include animate(#c08c5d, #a34e03d3);
       animation: buttonAnimation 2s infinite ease-in;
     }
     div {

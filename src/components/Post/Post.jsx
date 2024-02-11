@@ -5,11 +5,17 @@ import postImg from "../../assets/images/Mask group.png";
 import CommentBox from "../CommentBox/CommentBox";
 import { PostDetailsModal } from "../PostDetailsModal/PostDetailsModal";
 import { OverlayTrigger, Tooltip } from "react-bootstrap";
+import { useDispatch } from "react-redux";
+import { setLikedStatus } from "../Redux/storeSlice";
+import { toast } from "react-hot-toast";
+import { toastCustomStyles } from "../../App";
 
-const Post = () => {
+const Post = ({ post }) => {
+  const [data, setData] = useState(post);
   const [showComments, setShowComments] = useState(false);
   const divRef = useRef(null);
   const [showPostDetails, setShowPostDetails] = useState(false);
+  const dispatch = useDispatch();
 
   const handleShowCommentClick = () => {
     setShowComments((prev) => !prev);
@@ -21,11 +27,30 @@ const Post = () => {
     }
   }, [showComments]);
 
-  const renderTooltip = (props) => (
-    <Tooltip id="tooltip-bottom" {...props}>
-      Click for post details
-    </Tooltip>
-  );
+  const renderTooltip = (props) => {
+    return (
+      <Tooltip id="tooltip-bottom" {...props}>
+        Click for post details
+      </Tooltip>
+    );
+  };
+
+  // display post details popup
+  const handleShowPostDetailsClick = () => {
+    setShowPostDetails(true);
+  };
+
+  // handle user like click
+  const handleLikeClick = () => {
+    if (post.isLiked) {
+      toast.success("Post unliked", {
+        style: toastCustomStyles,
+      });
+    } else {
+      toast.success("Post liked", { style: toastCustomStyles });
+    }
+    dispatch(setLikedStatus(post.id));
+  };
   return (
     <>
       <div className="post">
@@ -39,22 +64,18 @@ const Post = () => {
           </div>
           <button className="secondary_btn">report</button>
         </div>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto
-          ullam accusamus deserunt inventore, tempora vitae totam possimus
-          illum!
-        </p>
+        {post.description && <p>{post.description}</p>}
         <div className="image">
           <OverlayTrigger
             placement="bottom"
-            delay={{ show: 250, hide: 400 }}
+            delay={{ show: 250, hide: 100 }}
             overlay={renderTooltip}
           >
             <img
-              src={postImg}
+              src={post.image}
               alt="post"
               loading="lazy"
-              onClick={() => setShowPostDetails(!showPostDetails)}
+              onClick={handleShowPostDetailsClick}
             />
           </OverlayTrigger>
         </div>
@@ -71,7 +92,9 @@ const Post = () => {
             <small>3 Comments</small>
           </div>
           <div className="buttons">
-            <button className="secondary_btn">Like</button>
+            <button className="secondary_btn" onClick={handleLikeClick}>
+              {post.isLiked ? "Liked" : "Like"}
+            </button>
             <button className="primary_btn" onClick={handleShowCommentClick}>
               Comment
             </button>
@@ -84,6 +107,8 @@ const Post = () => {
         </div>
       </div>
       <PostDetailsModal
+        setData={setData}
+        post={data}
         show={showPostDetails}
         onHide={() => setShowPostDetails(false)}
       />
