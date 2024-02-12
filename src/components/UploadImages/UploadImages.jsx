@@ -4,7 +4,6 @@ import "./UploadImages.scss";
 import { toast } from "react-hot-toast";
 
 const UploadImages = ({ inputRef, handleModalShow, setSelectedImg }) => {
-
   // handle image change
   const onImgChange = (file) => {
     if (file.target.files && file.target.files[0]) {
@@ -28,8 +27,8 @@ const UploadImages = ({ inputRef, handleModalShow, setSelectedImg }) => {
       <div className="left_box"></div>
       <div className="right_box"></div>
       <img src={img} alt="add post" loading="lazy" className="add_post_img" />
-      <div className="button_box">
-        <button className="upload_btn" onClick={() => inputRef.current.click()}>
+      <div className="button_box" onClick={() => inputRef.current.click()}>
+        <button className="upload_btn">
           upload image
           <input
             type="file"
