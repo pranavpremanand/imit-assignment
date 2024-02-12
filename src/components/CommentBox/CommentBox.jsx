@@ -29,7 +29,13 @@ const CommentBox = ({ comments, postId }) => {
       <div className="comments_input_box_container">
         <div className="comment_input_box">
           <img src={profileImg} alt="profile" />
-          <input value={input} type="text" placeholder="Type something..." onChange={handleCommentChange}/>
+          <input
+            value={input}
+            type="text"
+            placeholder="Type something..."
+            onChange={handleCommentChange}
+            onKeyDown={(e) => e.key === "Enter" && addComment()}
+          />
           <div className="send_btn" onClick={addComment}>
             <IoMdSend />
           </div>

@@ -109,6 +109,7 @@ export const PostDetailsModal = ({ post, setData, ...props }) => {
                     placeholder="Type something..."
                     value={input}
                     onChange={handleCommentChange}
+                    onKeyDown={(e) => e.key === "Enter" && addComment()}
                   />
                   <div className="send_btn" onClick={addComment}>
                     <IoMdSend />
