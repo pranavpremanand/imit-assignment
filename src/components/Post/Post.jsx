@@ -15,7 +15,7 @@ const Post = ({ post }) => {
   const [showComments, setShowComments] = useState(false);
   const divRef = useRef(null);
   const [showPostDetails, setShowPostDetails] = useState(false);
-  const dispatch = useDispatch();
+  const dispatch = useDispatch();  
 
   const handleShowCommentClick = () => {
     setShowComments((prev) => !prev);
@@ -25,7 +25,7 @@ const Post = ({ post }) => {
     if (showComments && divRef.current) {
       divRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
-  }, [showComments]);
+  }, [showComments,post.comments]);
 
   const renderTooltip = (props) => {
     return (
@@ -38,6 +38,7 @@ const Post = ({ post }) => {
   // display post details popup
   const handleShowPostDetailsClick = () => {
     setShowPostDetails(true);
+    setData(post)
   };
 
   // handle user like click
@@ -89,7 +90,7 @@ const Post = ({ post }) => {
               </div>
               <small>Liked by You and others</small>
             </div>
-            <small>3 Comments</small>
+            <small>{post.comments.length} Comments</small>
           </div>
           <div className="buttons">
             <button className="secondary_btn" onClick={handleLikeClick}>
@@ -101,7 +102,7 @@ const Post = ({ post }) => {
           </div>
           {showComments && (
             <div id="collapse-text" ref={divRef}>
-              <CommentBox />
+              <CommentBox comments={post.comments} postId={post.id}/>
             </div>
           )}
         </div>

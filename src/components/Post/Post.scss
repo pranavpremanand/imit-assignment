@@ -39,7 +39,7 @@
   }
   .image {
     width: 100%;
-    height: 30rem;
+    height: 28rem;
     overflow: hidden;
     border-radius: 0.3rem;
     @media (max-width: 768px) {
@@ -130,7 +130,7 @@
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   #tooltip-bottom {
     display: none;
   }

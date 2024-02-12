@@ -10,15 +10,14 @@ import { FaHeart } from "react-icons/fa";
 import { toast } from "react-hot-toast";
 import { toastCustomStyles } from "../../App";
 import { useDispatch } from "react-redux";
-import { setLikedStatus } from "../Redux/storeSlice";
+import { setComment, setLikedStatus } from "../Redux/storeSlice";
 import { useState } from "react";
 
 export const PostDetailsModal = ({ post, setData, ...props }) => {
+  const [input, setInput] = useState("");
   const dispatch = useDispatch();
-  const [liked,setLiked] = useState(post.isLiked)
-  const [newPost1, newPost2, newPost3] = useSelector(
-    (state) => state.store.posts
-  );
+  const posts = useSelector((state) => state.store.posts);
+  const [comments, setComments] = useState(post.comments);
 
   // handle user like click
   const handleLikeClick = () => {
@@ -29,8 +28,30 @@ export const PostDetailsModal = ({ post, setData, ...props }) => {
     } else {
       toast.success("Post liked", { style: toastCustomStyles });
     }
-    setLiked(!liked)
     dispatch(setLikedStatus(post.id));
+    setData({ ...post, isLiked: !post.isLiked });
+  };
+
+  // handle comment input change
+  const handleCommentChange = (e) => {
+    if (e.target.value !== "") {
+      setInput(e.target.value);
+    }
+  };
+
+  // add comment to store
+  const addComment = () => {
+    if (input.length) {
+      dispatch(setComment({ postId: post.id, comment: input }));
+      setComments([input, ...comments]);
+      setInput("");
+    }
+  };
+
+  // handle post change
+  const handlePostChange = (index) => {
+    setData(posts[index]);
+    setComments(posts[index].comments);
   };
   return (
     <Modal
@@ -60,7 +81,7 @@ export const PostDetailsModal = ({ post, setData, ...props }) => {
               <hr />
               <div className="buttons">
                 <button className="secondary_btn" onClick={handleLikeClick}>
-                  {liked ? (
+                  {post.isLiked ? (
                     <>
                       <FaHeart className="hear_icon" />
                       Liked
@@ -75,16 +96,22 @@ export const PostDetailsModal = ({ post, setData, ...props }) => {
                 <button className="primary_btn">Comment</button>
               </div>
               <div className="comments_list">
-                <CommentItem />
-                <CommentItem />
-                <CommentItem />
-                <div className="comments_input_box_container">
-                  <div className="comment_input_box">
-                    <img src={profileImg2} alt="profile" />
-                    <input type="text" placeholder="Type something..." />
-                    <div className="send_btn">
-                      <IoMdSend />
-                    </div>
+                {comments.length !== 0 &&
+                  comments.map((comment, i) => (
+                    <CommentItem comment={comment} key={i} />
+                  ))}
+              </div>
+              <div className="comments_input_box_container">
+                <div className="comment_input_box">
+                  <img src={profileImg2} alt="profile" />
+                  <input
+                    type="text"
+                    placeholder="Type something..."
+                    value={input}
+                    onChange={handleCommentChange}
+                  />
+                  <div className="send_btn" onClick={addComment}>
+                    <IoMdSend />
                   </div>
                 </div>
               </div>
@@ -93,25 +120,25 @@ export const PostDetailsModal = ({ post, setData, ...props }) => {
           <div className="latest_posts">
             <h6>Latest Images</h6>
             <div className="posts_list">
-              {newPost1 && (
+              {posts[0] && (
                 <img
-                  src={newPost1.image}
+                  src={posts[0].image}
                   alt="post"
-                  onClick={() => setData(newPost1)}
+                  onClick={() => handlePostChange(0)}
                 />
               )}
-              {newPost2 && (
+              {posts[1] && (
                 <img
-                  src={newPost2.image}
+                  src={posts[1].image}
                   alt="post"
-                  onClick={() => setData(newPost2)}
+                  onClick={() => handlePostChange(1)}
                 />
               )}
-              {newPost3 && (
+              {posts[2] && (
                 <img
-                  src={newPost3.image}
+                  src={posts[2].image}
                   alt="post"
-                  onClick={() => setData(newPost3)}
+                  onClick={() => handlePostChange(2)}
                 />
               )}
             </div>

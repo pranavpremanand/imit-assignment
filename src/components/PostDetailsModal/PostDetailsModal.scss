@@ -3,8 +3,12 @@
 .post_details_modal {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 50vh 30vh;
   gap: 1rem;
   position: relative;
+  @media (max-width: 815px) {
+    display: block;
+  }
   .close_btn {
     background-color: #a7a7a7;
     color: #ffffff;
@@ -25,30 +29,45 @@
     grid-template-columns: 1fr 1fr;
     gap: 1rem;
     height: 50vh;
+    grid-template-rows: 50vh 50vh;
+    max-height: 450px;
     overflow: hidden;
     @media (max-width: 815px) {
       grid-template-columns: repeat(1, 1fr);
+      gap: 0.5rem;
       height: fit-content;
+      max-height: auto;
+      grid-template-rows: auto auto;
     }
     img {
       width: 100%;
       object-fit: cover;
-      height: 50vh;
+      height: 100%;
       @media (max-width: 815px) {
-        height: 40vh;
+        height: 35vh;
       }
     }
     &_right_side {
       padding-right: 1.5rem;
+      position: relative;
+      height: 100%;
+      display: grid;
+      grid-template-rows: 19% 11% 10% 60%;
       @media (max-width: 815px) {
         padding-right: 0;
+        display: flex;
+        flex-direction: column;
+        height: auto;
+        hr {
+          margin-top: -0.5rem;
+        }
       }
       .post_header {
         display: flex;
         align-items: center;
         justify-content: space-between;
         margin-bottom: 0.8rem;
-        padding-top: .1rem;
+        padding: 0.2rem;
         &_left_side {
           display: flex;
           gap: 0.5rem;
@@ -103,16 +122,15 @@
         }
       }
       .comments_list {
-        padding: 0.5rem 0.5rem 6.5rem 0.5rem;
+        padding: 0.5rem 0.5rem 4rem 0.5rem;
         overflow-y: scroll;
         scroll-behavior: smooth;
         background-color: #dcdcdc4d;
         border-radius: 1rem;
         position: relative;
-        height: 50vh;
         @media (max-width: 815px) {
           height: 28vh;
-          padding: 0.5rem 0.5rem 0rem 0.5rem;
+          padding: 0.5rem 0.5rem 8rem 0.5rem;
         }
         &::-webkit-scrollbar {
           display: none;
@@ -163,54 +181,58 @@
             margin-left: 1.5rem;
           }
         }
-        .comments_input_box_container {
-          position: sticky;
-          bottom: 0.2rem;
-          left: 0;
-          z-index: 4;
-          background-color: #ffffff;
+      }
+      .comments_input_box_container {
+        position: sticky;
+        z-index: 4;
+        bottom: 0;
+        background-color: #ffffff;
+        border-radius: 2rem;
+        display: flex;
+        justify-content: center;
+        font-size: 0.9rem;
+        @media (max-width: 815px) {
+        }
+        .comment_input_box {
+          width: 100%;
           border-radius: 2rem;
-          font-size: 0.9rem;
-          .comment_input_box {
-            margin-top: 1rem;
+          display: flex;
+          gap: 0.3rem;
+          background-color: #ecc8ae4d;
+          padding: 0.3rem;
+          justify-content: space-between;
+          align-items: center;
+          img {
+            width: 2.3rem;
+            height: 2.3rem;
+            border-radius: 50%;
+          }
+          input {
             border-radius: 2rem;
+            background-color: transparent;
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 0.8rem;
+          }
+          .send_btn {
+            background-color: transparent;
+            width: 2.5rem;
+            height: 2.5rem;
             display: flex;
-            gap: 0.3rem;
-            background-color: #ecc8ae4d;
-            padding: 0.3rem;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
-            img {
-              width: 2.3rem;
-              height: 2.3rem;
-              border-radius: 50%;
-            }
-            input {
-              border-radius: 2rem;
-              background-color: transparent;
-              border: none;
-              outline: none;
-              width: 100%;
-              font-size: 0.8rem;
-            }
-            .send_btn {
-              background-color: transparent;
-              width: 2.5rem;
-              height: 2.5rem;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              border-radius: 0.25rem;
-              color: #cf796c;
-              font-size: 1.5rem;
-              cursor: pointer;
-            }
+            border-radius: 0.25rem;
+            color: #cf796c;
+            font-size: 1.5rem;
+            cursor: pointer;
           }
         }
       }
     }
   }
   .latest_posts {
+    height: 100%;
     @media (max-width: 815px) {
       display: none;
     }
@@ -218,9 +240,11 @@
       display: grid;
       grid-template-columns: repeat(3, 1fr);
       gap: 1rem;
+      height: 85%;
+      overflow: hidden;
       img {
         width: 100%;
-        height: 10rem;
+        height: 100%;
         object-fit: cover;
         cursor: pointer;
       }

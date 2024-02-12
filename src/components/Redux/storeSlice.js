@@ -2,7 +2,6 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
   posts: [],
-  comments: [],
 };
 
 const storeSlice = createSlice({
@@ -21,11 +20,11 @@ const storeSlice = createSlice({
       });
     },
     setComment: (state, action) => {
-      state.comments = state.comments.map((comment) => {
-        if (comment.postId === action.payload.postId) {
-          comment.comments = [action.payload, comment.comments];
+      state.posts.map((post) => {
+        if (post.id === action.payload.postId) {
+          post.comments = [action.payload.comment, ...post.comments];
         }
-        return comment;
+        return post;
       });
     },
   },

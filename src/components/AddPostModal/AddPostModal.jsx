@@ -21,6 +21,7 @@ export const AddPostModal = ({ selectedImg, setSelectedImg, ...props }) => {
       image: selectedImg,
       description,
       isLiked: false,
+      comments: [],
     };
     dispatch(addPost(data));
     setSelectedImg("");
@@ -42,7 +43,7 @@ export const AddPostModal = ({ selectedImg, setSelectedImg, ...props }) => {
               name=""
               id=""
               cols=""
-              rows="4"
+              rows="2"
               onChange={(e) => setDescription(e.target.value)}
             />
           </div>

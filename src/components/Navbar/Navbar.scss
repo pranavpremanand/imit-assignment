@@ -8,7 +8,7 @@
   left: 0;
   background-color: #fff;
   z-index: 10;
-  padding: 1rem 3rem 0.5rem 3rem !important;
+  padding: 0.5rem 3rem 0.5rem 3rem !important;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
   @media (max-width: 600px) {
     padding: 1rem 1rem 0.5rem 1rem !important;
@@ -17,7 +17,7 @@
     width: 3rem;
     object-fit: contain;
     @media (max-width: 600px) {
-      width: 2.5rem;
+      width: 2rem;
     }
   }
   &_options {

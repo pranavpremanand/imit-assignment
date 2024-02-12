@@ -4,7 +4,7 @@ import profileImg from "../../assets/images/profile1.png";
 import profileImg1 from "../../assets/images/Mask group.png";
 import { HiOutlineDotsVertical } from "react-icons/hi";
 
-const CommentItem = () => {
+const CommentItem = ({ comment }) => {
   return (
     <div className="comment">
       <div className="comment_head">
@@ -15,10 +15,8 @@ const CommentItem = () => {
         </div>
         <HiOutlineDotsVertical className="three_dots_icon" />
       </div>
-      <div className="comment_text">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-      </div>
-      <div className="user_reply_comment">
+      <div className="comment_text">{comment}</div>
+      {/* <div className="user_reply_comment">
         <div className="comment_head">
           <div className="profile_img_side">
             <img src={profileImg} alt="profile" />
@@ -30,7 +28,7 @@ const CommentItem = () => {
         <div className="comment_text">
           Lorem ipsum, dolor sit amet consectetur adipisicing elit.
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

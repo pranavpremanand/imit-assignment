@@ -7,31 +7,40 @@
     position: sticky;
     top: 0;
     left: 0;
+    z-index: 4;
     background-color: #ffffff;
-    padding: 0 0 1rem 0;
+    border-radius: 2rem;
+    font-size: 0.9rem;
     .comment_input_box {
-      margin-top: 1rem;
-      border-radius: 0.3rem;
+      border-radius: 2rem;
       display: flex;
-      gap: 1rem;
-      background-color: #f3f3f3;
+      gap: 0.3rem;
+      background-color: #ecc8ae4d;
       padding: 0.3rem;
       justify-content: space-between;
+      align-items: center;
+      img {
+        width: 2.5rem;
+        height: 2.5rem;
+        border-radius: 50%;
+      }
       input {
-        background-color: #f3f3f3;
+        border-radius: 2rem;
+        background-color: transparent;
         border: none;
         outline: none;
         width: 100%;
+        font-size: 0.8rem;
       }
       .send_btn {
-        background-color: #e7ad99;
+        background-color: transparent;
         width: 2.5rem;
         height: 2.5rem;
         display: flex;
         justify-content: center;
         align-items: center;
         border-radius: 0.25rem;
-        color: #ffffff;
+        color: #cf796c;
         font-size: 1.5rem;
         cursor: pointer;
       }
