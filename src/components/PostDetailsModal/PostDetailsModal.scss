@@ -132,8 +132,8 @@
         position: relative;
         @media (max-width: 815px) {
           height: 28vh;
-          //   padding: 0.5rem 0.5rem 8rem 0.5rem;
-          padding: 0.5rem 0.5rem 2rem 0.5rem;
+            padding: 0.5rem 0.5rem 8rem 0.5rem;
+        //   padding: 0.5rem 0.5rem 2rem 0.5rem;
         }
         &::-webkit-scrollbar {
           display: none;
