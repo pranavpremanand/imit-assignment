@@ -37,14 +37,16 @@
       gap: 0.5rem;
       height: fit-content;
       max-height: auto;
-      grid-template-rows: auto auto;
+      //   grid-template-rows: auto auto;
+      grid-template-rows: 20vh 50vh;
     }
     img {
       width: 100%;
       object-fit: cover;
       height: 100%;
       @media (max-width: 815px) {
-        height: 35vh;
+        // height: 35vh;
+        height: 100%;
       }
     }
     &_right_side {
@@ -130,7 +132,8 @@
         position: relative;
         @media (max-width: 815px) {
           height: 28vh;
-          padding: 0.5rem 0.5rem 8rem 0.5rem;
+          //   padding: 0.5rem 0.5rem 8rem 0.5rem;
+          padding: 0.5rem 0.5rem 2rem 0.5rem;
         }
         &::-webkit-scrollbar {
           display: none;
