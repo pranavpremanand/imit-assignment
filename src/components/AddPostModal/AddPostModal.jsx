@@ -3,6 +3,7 @@ import "./AddPostModal.scss";
 import { useDispatch } from "react-redux";
 import { addPost } from "../Redux/storeSlice";
 import { useState } from "react";
+import { toast } from "react-hot-toast";
 
 export const AddPostModal = ({ selectedImg, setSelectedImg, ...props }) => {
   const dispatch = useDispatch();
@@ -27,6 +28,7 @@ export const AddPostModal = ({ selectedImg, setSelectedImg, ...props }) => {
     setSelectedImg("");
     setDescription("");
     props.onHide();
+    toast.success('Post uploaded!')
   };
   return (
     <Modal
